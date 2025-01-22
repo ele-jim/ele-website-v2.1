@@ -1,0 +1,701 @@
+body,
+html {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  background: #fff;
+  height: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 8px;
+  background: #fff;
+  height: 10vh;
+  max-height: 150px;
+  position: relative;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.logo {
+  height: 10vh;
+  max-height: 150px;
+  padding-top: 8px;
+}
+
+.svg-top,
+.svg-bottom {
+  display: block;
+  width: 100vw;
+  height: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: -1px;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.svg-top {
+  top: 0;
+  vertical-align: bottom;
+}
+
+.svg-bottom {
+  bottom: 0;
+}
+
+.svg-top img,
+.svg-bottom img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  vertical-align: bottom;
+}
+
+.arrow {
+  position: absolute;
+  top: 60%; /* This centers it vertically in the container, but we will adjust */
+  transform: translateY(-50%); /* Centers the arrow relative to its top position */
+  cursor: pointer;
+  z-index: 10;
+  padding: 5px;
+}
+
+.arrow img {
+  width: 25px; /* Adjust the width of the arrow */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+}
+
+.left-arrow {
+  left: 10px; /* Position the left arrow */
+}
+
+.right-arrow {
+  right: 10px; /* Position the right arrow */
+}
+
+#vinyls .arrow {
+  top: 40%; /* Center within the vinyl-cards section */
+  transform: translateY(-50%); /* Ensure centering */
+}
+
+#vinyls .left-arrow {
+  left: 10px; /* Adjust position from the left for vinyl cards */
+}
+
+#vinyls .right-arrow {
+  right: 10px; /* Adjust position from the right for vinyl cards */
+}
+
+#vinyls .arrow img {
+  width: 25px; /* Adjust the size of the arrow image */
+  height: auto;
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .arrow {
+    display: none !important; /* Force hide the arrows on screens smaller than 768px */
+  }
+
+  .arrow img {
+    display: none !important; /* Force hide the arrow images on screens smaller than 768px */
+  }
+
+  #vinyls .arrow {
+    display: none !important; /* Force hide the arrows on screens smaller than 768px */
+  }
+
+  #vinyls .arrow {
+    display: none !important; /* Force hide the arrow images on screens smaller than 768px */
+  }
+}
+
+#events {
+  position: relative;
+  background: black;
+  z-index: 1;
+  margin: 0;
+  width: 100%;
+}
+
+.events-title {
+  font-family: "Inter", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: white;
+  text-align: left;
+  padding: 10px 20px; /* Consolidated padding values */
+  margin: 0; /* Ensure there's no default margin causing layout shifts */
+  background: transparent;
+  z-index: 1; /* Keep it behind the arrows */
+  position: relative; /* Ensure it doesn’t interfere with other positioned elements */
+}
+
+.events-title {
+  font-family: "Inter", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: white;
+  text-align: left;
+  padding: 0px 0px 10px 20px;
+  padding-top: 10px;
+  background: transparent;
+}
+
+.event-cards, .vinyl-cards {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  white-space: nowrap;
+  display: flex;
+  gap: 20px;
+}
+
+#vinyls .scroll-container {
+  position: relative; /* Make sure arrows are positioned relative to vinyl section */
+}
+
+.vinyl-title {
+  font-family: "Inter", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #000;
+  text-align: left;
+  padding: 0px 0px 10px 20px;
+  background: transparent;
+}
+
+.event-cards,
+.vinyl-cards {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+  padding-right: 25px;
+}
+
+.event-cards::-webkit-scrollbar,
+.vinyl-cards::-webkit-scrollbar {
+  display: none;
+}
+
+.event,
+.vinyl {
+  margin: 0 5px;
+  text-align: center;
+}
+
+.event img {
+  width: auto;
+  height: 25vh;
+  object-fit: contain;
+  max-height: 300px;
+}
+
+.vinyl img {
+  width: auto;
+  height: 20vh;
+  object-fit: contain;
+  max-height: 250px;
+}
+
+.event-caption {
+  font-size: auto;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.events-title,
+.event {
+  padding-left: 20px;
+}
+
+.vinyl {
+  padding-left: 20px;
+}
+
+.vinyl-caption {
+  font-size: auto;
+  color: #000;
+  text-align: center;
+  padding: 5px 0;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.vinyl .middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  padding-top: 5px; /* Add padding to the top */
+}
+
+.vinyl .middle .album-info {
+  text-align: center;
+  margin-bottom: 0;
+  font-size: 1.5vh; /* Using vh units for scaling */
+}
+
+.vinyl .middle .album-title {
+  font-weight: bold;
+  margin-bottom: 0;
+  padding-right: 10px;
+  font-size: 1.5vh; /* Using vh units for scaling */
+}
+
+.vinyl .middle .track-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.vinyl .middle .long-track-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.long-track-list {
+  display: grid;
+  grid-template-columns: 50% 50%; /* First column is 60%, second is 40% */
+  grid-auto-flow: row; /* Fill rows first, then columns */
+  gap: 1px; /* Space between columns */
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+
+.long-track-list li {
+  margin-bottom: 2px; /* Spacing between each list item */
+}
+
+.long-track-list-wrapper {
+  display: grid;
+  grid-template-columns: 56% 44%; /* Two columns with the specified ratio */
+  gap: 10px; /* Space between the columns */
+}
+
+.long-track-list-wrapper ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.vinyl .middle .long-track-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.long-track-list-wrapper ul li {
+  margin-bottom: 2px; /* Space between list items */
+}
+
+.vinyl .middle .purchase-link {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: -5px;
+}
+
+.vinyl .middle .purchase-link .buy-box {
+  background-color: transparent;
+  padding: 1px;
+  border-radius: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vinyl .middle .purchase-link .buy-image {
+  width: 40px;
+  height: auto;
+  margin-top: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .vinyl .middle .album-info {
+    font-size: 1.5vh; /* Adjusted scaling for smaller screens */
+    margin-top: -5px;
+    text-align: center;
+  }
+
+  .vinyl .middle .album-title {
+    font-size: 1.5vh; /* Adjusted scaling for smaller screens */
+    margin-top: -5px;
+  }
+
+  .vinyl .middle .track-list li {
+    font-size: 1.2vh; /* Adjusted scaling for smaller screens */
+  }
+
+  .vinyl .middle .long-track-list li {
+    font-size: 1.2vh; /* Adjusted scaling for smaller screens */
+  }
+
+  .vinyl .middle .icon-link img {
+    max-width: 15%;
+    max-height: 15%;
+  }
+
+  .vinyl .middle .purchase-link {
+    margin-top: -5px;
+  }
+
+  .vinyl .middle .purchase-link .buy-image {
+    margin-top: 5px;
+    width: 35px;
+  }
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 10px;
+  max-width: 100%;
+  max-height: 100%;
+  gap: 10px;
+}
+
+.vinyl .container:hover .image {
+  opacity: 0.05;
+}
+
+.event .container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.event .container.tapped .middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  opacity: 1;
+  transition: 0.5s ease;
+}
+
+.icon-link {
+  display: block;
+  margin: 5px 0;
+}
+
+.middle .icon-link img {
+  width: auto;
+  height: 7vh;
+  max-height: 100%;
+  max-height: 125px;
+}
+
+@media screen and (max-width: 768px) {
+  .icon-link img {
+    height: 20vh;
+    max-width: 100%;
+  }
+
+  .middle {
+    gap: 8px;
+    flex-direction: column;
+  }
+}
+
+.disabled-link {
+  pointer-events: none;
+}
+
+.tapped .image {
+  opacity: 0.3;
+}
+
+.tapped .middle {
+  opacity: 1;
+}
+
+.countdown-timer {
+  color: red;
+  text-align: center;
+  padding: 10px 0;
+  display: block;
+  font-size: auto;
+}
+
+/* Footer */
+
+footer {
+  background: #fff;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  padding-top: 0px;
+  padding-bottom: 10px;
+}
+
+.footer-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.footer-content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1px;
+  font-weight: 700;
+}
+
+.footer-content p {
+  font-size: 1rem;
+  margin-top: 1px;
+  margin-bottom: 5px;
+  font-size: 0.875rem;
+  font-weight: 200;
+  color: #555;
+}
+
+.footer-content .social-media-icons {
+  margin-top: 0px;
+}
+
+.footer-content .social-media-icons.mobile {
+  display: none;
+}
+
+.footer-content .social-media-icons.mobile a img {
+  width: 40px;
+  height: 40px;
+}
+
+.invisible-button {
+  visibility: hidden; /* Ensures it's not visible */
+  width: 40px; /* Matches the size of the actual button */
+}
+
+#mc_embed_signup {
+  display: flex;
+  justify-content: center; /* Centers the container horizontally */
+  align-items: center; /* Centers the container vertically */
+  padding: 10px;
+}
+
+#mc_embed_signup_scroll {
+  display: inline-block;
+}
+
+.mc-field-group {
+  display: flex;
+  justify-content: center; /* Centers everything horizontally */
+  align-items: center; /* Centers vertically */
+  gap: 10px; /* Adjusts spacing between elements */
+}
+
+#mc-embedded-subscribe-form .email {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  width: 250px;
+}
+
+#mc-embedded-subscribe-form .button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
+#mce-error-response,
+#mce-success-response {
+  color: red;
+  padding: 10px 0;
+  width: 250px;
+  margin: 0 auto;
+}
+
+#mc_embed_signup .mc-field-group {
+  display: inline-flex; /* Allows the input and button to align horizontally */
+  align-items: center; /* Vertically aligns the input and button */
+  justify-content: flex-start; /* Ensures alignment is based on the input */
+  gap: 10px; /* Space between input and button */
+  position: relative;
+  width: auto; /* Shrinks to fit the content */
+}
+
+#mc_embed_signup .email {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  width: 250px; /* Fixed width for input */
+  flex-shrink: 0; /* Prevents input from resizing */
+}
+
+#mc_embed_signup .button {
+  padding: 10px;
+  width: 40px;
+  height: 30px; /* Ensures the button matches the input height */
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  flex-shrink: 0; /* Prevents button from resizing */
+}
+
+#mc_embed_signup .button img {
+  max-width: 100%;
+  height: auto;
+}
+
+#mc_embed_signup .response {
+  margin-top: 10px;
+  font-size: 0.875rem;
+}
+
+#mc_embed_signup .response.error {
+  color: red;
+}
+
+#mc_embed_signup .response.success {
+  color: green;
+}
+
+#mc-embedded-subscribe-form .button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  width: auto;
+}
+
+#mc-embedded-subscribe-form .button img {
+  display: block;
+  max-width: 100%;
+  max-height: 10px;
+  height: auto;
+}
+
+#mc-embedded-subscribe-form .button:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 768px) {
+  #mc-embedded-subscribe-form .mc-field-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #mc-embedded-subscribe-form .email {
+    flex: 1;
+    max-width: calc(100% - 58px);
+  }
+
+  #mc-embedded-subscribe-form .button {
+    background-color: #333;
+    border: none;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    max-width: 48px;
+  }
+
+  #mc-embedded-subscribe-form .button img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.valid-email {
+  background-color: lightgreen;
+}
+
+.invalid-email {
+  background-color: palevioletred;
+}
+
+.social-media-icons.desktop a {
+  text-decoration: none;
+}
+
+.social-media-icons.desktop {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.social-media-icons.mobile {
+  display: none;
+}
+
+.social-media-icons img {
+  height: 4.2vh;
+  max-height: 40px;
+  width: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .social-media-icons.desktop {
+    display: none;
+  }
+
+  .social-media-icons.mobile {
+    display: flex !important;
+    justify-content: center;
+    width: 100%;
+    gap: 3px;
+    padding: 5px 0;
+  }
+}

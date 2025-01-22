@@ -1,0 +1,370 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  background: black;
+}
+
+.hidden {
+  position: absolute;
+  left: -9999px;
+}
+
+/* Header Styles */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 8px;
+  background: #fff;
+  height: 10vh;
+  max-height: 150px;
+  position: relative;
+}
+
+.logo {
+  height: 10vh;
+  max-height: 150px;
+  padding-top: 8px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.image-vinyl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top; 60px;
+  padding: 20px; /* Optional: Adjust for spacing */
+  background: white;
+  transition: transform 0.3s ease;
+}
+
+.image-vinyl img:hover {
+  transform: scale(1.05);
+}
+
+.image-vinyl img {
+  width: 400px;
+  max-width: 100%; /* Ensures it doesn't overflow */
+}
+
+.social-media-icons {
+    gap: 3px;
+    position: absolute;
+}
+
+.social-media-icons img {
+    width: auto;
+    height: 4.2vh;
+    max-height: 40px;
+}
+
+.social-media-icons.mobile {
+    display: none;
+}
+
+.social-media-icons.desktop {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.social-media-icons.desktop a {
+    text-decoration: none;
+}
+
+/* Wave Decoration */
+.top-header-wave {
+  width: 100%;
+  height: 70px;
+  max-height: 70px;
+  display: block;
+  background-color: white;
+  position: relative;
+  z-index: 1;
+}
+
+/* Container for both sections */
+.content-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px; 
+  padding: 35px;
+  color: white;
+}
+
+/* Left section styles */
+.left-section {
+  text-align: right;
+  flex: 1;
+}
+
+.right-section {
+  padding-top: 10px;
+  flex: 1;
+}
+
+.right-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.right-section li {
+  margin-bottom: 5px; /* Adds spacing between list items */
+}
+
+.band-name {
+  font-size: clamp(2rem, 6vw, 1.6rem);
+  padding-bottom: 4px;
+}
+
+.lp-name {
+  font-size: clamp(1.1rem, 4vw, 1.3rem);
+}
+
+.edition {
+  padding-top: 20px;
+  padding-bottom: 4px;
+}
+
+.size {
+  padding-bottom: 4px;
+}
+
+
+
+/* Footer Styles */
+footer {
+  background: black;
+  color: white;
+  text-align: center;
+  position: relative;
+  padding-top: 1px;
+  padding-bottom: 10px;
+}
+  
+.footer-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+  
+.footer-content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1px;
+  font-weight: 700;
+}
+  
+.footer-content p {
+  font-size: 1rem;
+  margin-top: 1px;
+  margin-bottom: 5px;
+  font-size: 0.875rem;
+  font-weight: 200;
+  color: #fff;
+}
+  
+.footer-content .social-media-icons {
+  margin-top: 0px;
+}
+  
+.footer-content .social-media-icons.mobile {
+  display: none;
+}
+  
+.footer-content .social-media-icons.mobile a img {
+  width: 40px;
+  height: 40px;
+}
+
+.mc-field-group {
+  display: flex;
+  justify-content: center; /* Centers everything horizontally */
+  align-items: center; /* Centers vertically */
+  gap: 10px; /* Adjusts spacing between elements */
+}
+
+#mc_embed_signup {
+  background: black;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+#mc_embed_signup_scroll {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#mce-EMAIL {
+  background: black;
+  color: white;
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 10px 20px;
+  width: 250px;
+  flex-shrink: 0;
+}
+
+#mc-embedded-subscribe .button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #5b5b5b;
+    color: #fff;
+    cursor: pointer;
+}
+  
+#mc-embedded-subscribe .button:hover {
+    background-color: #555;
+}
+
+.invisible-button {
+    visibility: hidden; /* Ensures it's not visible */
+    width: 40px; /* Matches the size of the actual button */
+}
+
+#mc-embedded-subscribe {
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+#mc-embedded-subscribe-form .button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    width: auto;
+  }
+  
+  #mc-embedded-subscribe-form .button img {
+    display: block;
+    max-width: 100%;
+    max-height: 10px;
+    height: auto;
+}
+
+#mce-responses {
+  margin-top: 10px;
+  text-align: left;
+}
+
+#mce-error-response {
+  color: red;
+  display: none;
+}
+
+#mce-success-response {
+  color: green;
+  display: none;
+}
+
+.copyright {
+  margin-top: 20px;
+  font-size: 0.875rem;
+}
+  
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .image-vinyl {
+    width: 100%;
+    text-align: center;
+    padding-right: 0;
+    margin-bottom: 0px;
+  }
+  
+  .image-vinyl img {
+    width: 70%;
+    height: auto;
+    max-height: none;
+  }
+
+  .content-container {
+    flex-direction: column; /* Stacks sections vertically */
+    align-items: center; /* Centers the sections on mobile */
+    gap: 0px;
+  }
+
+  .left-section,
+  .right-section {
+    width: 100%; /* Makes sections take full width */
+    text-align: center; /* Centers text for better mobile appearance */
+  }
+  
+  .left-section {
+    text-align: right;
+  }
+
+  .right-section {
+    text-align: left;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .social-media-icons.desktop {
+    display: none;
+  }
+
+  .social-media-icons.mobile {
+    display: flex !important;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    gap: 3px;
+    padding: 5px 0;
+  }
+
+  .icon-link img {
+    height: 20vh;
+    max-width: 100%;
+  }
+
+  #mc-embedded-subscribe-form .mc-field-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #mc-embedded-subscribe-form .email {
+    flex: 1;
+    max-width: calc(100% - 58px);
+  }
+
+  #mc-embedded-subscribe-form .button {
+    background-color: #333;
+    border: none;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    max-width: 48px;
+  }
+
+  #mc-embedded-subscribe-form .button img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+}
