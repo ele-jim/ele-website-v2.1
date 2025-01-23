@@ -94,6 +94,7 @@ header {
 }
 
 .wave-decoration.top-wave {
+  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
@@ -110,22 +111,28 @@ header {
 /* Event Container */
 .event-container {
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  background-color: black;
-  padding: 20px;
-  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  background-color: rgb(0, 0, 0);
+  padding-top: 30px;
+}
+
+.event-details-container {
   color: white;
-  font-family: Arial, sans-serif;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .event-image {
   flex: 0 0 50%;
   text-align: right;
-  padding-right: 10px;
 }
 
 .event-image img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 5px;
   max-width: 100%;
   height: auto;
   object-fit: contain;
@@ -135,6 +142,22 @@ header {
 
 .event-image img:hover {
   transform: scale(1.05);
+}
+
+.left-details,
+.right-details {
+  flex: 1;
+  min-width: 300px;
+}
+
+.left-details {
+  text-align: right;
+  padding-right: 20px;
+}
+
+.right-details {
+  text-align: left;
+  padding: 0px
 }
 
 .event-details {
@@ -149,6 +172,11 @@ header {
 .event-date {
   font-size: 1rem;
   font-weight: bold;
+}
+
+.ele-presents-label {
+  margin: 5px 0;
+  padding-top: 15px;
 }
 
 .event-title {
@@ -210,6 +238,8 @@ header {
   padding-top: 10px;
   max-width: 400px;
   word-wrap: break-word;
+  text-align: right; /* Aligns text within the box */
+  margin-left: auto; /* Pushes the box to the right */
 }
 
 /* Map Container */
@@ -455,15 +485,8 @@ footer {
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
-  .event-container {
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
-    gap: 0px;
-  }
-  
   .event-image {
-    width: 70%;
+    width: 60%;
     text-align: center;
     padding-right: 0;
     margin-bottom: 0px;
@@ -473,6 +496,26 @@ footer {
     width: 100%;
     height: auto;
     max-height: none;
+  }
+  
+  .event-details-container {
+    padding-left: 20px;
+    width: 100%;
+    flex-direction: column;
+  }
+  
+  .left-details,
+  .right-details {
+    padding: 0;
+  }
+
+  .right-details {
+    order: 1; /* Make this appear first */
+  }
+
+  .left-details {
+    order: 2; /* Make this appear second */
+    padding-right: 20px;
   }
 
   .event-details {
@@ -521,6 +564,7 @@ footer {
     font-size: 0.8rem;
     margin: 5px 0;
     padding-top: 7px;
+    text-align: right;
   }
 
   .facebook-event {

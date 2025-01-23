@@ -120,7 +120,6 @@ header {
 .event-details-container {
   color: white;
   display: flex;
-  gap: 20px;
   flex-wrap: wrap;
 }
 
@@ -157,7 +156,7 @@ header {
 
 .right-details {
   text-align: left;
-  padding-left: 20px;
+  padding: 0px
 }
 
 .event-details {
@@ -172,6 +171,11 @@ header {
 .event-date {
   font-size: 1rem;
   font-weight: bold;
+}
+
+.ele-presents-label {
+  margin: 5px 0;
+  padding-top: 15px;
 }
 
 .event-title {
@@ -480,19 +484,8 @@ footer {
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
-  .event-details-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .left-details,
-  .right-details {
-    padding: 0;
-  }
-
   .event-image {
-    width: 70%;
+    width: 60%;
     text-align: center;
     padding-right: 0;
     margin-bottom: 0px;
@@ -502,6 +495,26 @@ footer {
     width: 100%;
     height: auto;
     max-height: none;
+  }
+  
+  .event-details-container {
+    padding-left: 20px;
+    width: 100%;
+    flex-direction: column;
+  }
+  
+  .left-details,
+  .right-details {
+    padding: 0;
+  }
+
+  .right-details {
+    order: 1; /* Make this appear first */
+  }
+
+  .left-details {
+    order: 2; /* Make this appear second */
+    padding-right: 20px;
   }
 
   .event-details {
