@@ -7,7 +7,7 @@ async function loadMedia() {
 
     // Dynamically determine the media directory based on the current HTML file name
     const currentFileName = window.location.pathname.split('/').pop().split('.').shift();
-    const mediaDirectory = `../event/galleries/${currentFileName}/`;
+    const mediaDirectory = `./galleries/${currentFileName}/`;
 
     try {
         const response = await fetch(mediaDirectory);
