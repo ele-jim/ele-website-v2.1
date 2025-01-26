@@ -372,6 +372,9 @@ header {
 .container {
   position: relative;
   width: 100%;
+  height: auto;
+  max-height: 300px;
+  overflow: hidden; /* Ensures the image doesn't overflow */
 }
 
 .image {
@@ -403,15 +406,15 @@ header {
 }
 
 .vinyl .container:hover .image {
-  opacity: 0.05;
+  transform: scale(1.02);
 }
 
 .event .container:hover .image {
-  opacity: 0.3;
+  transform: scale(1.02);;
 }
 
 .container:hover .middle {
-  opacity: 1;
+  opacity: 0;
 }
 
 .event .container.tapped .middle {
