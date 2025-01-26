@@ -7,22 +7,21 @@ async function loadMedia() {
 
     // Dynamically determine the media directory based on the current HTML file name
     const currentFileName = window.location.pathname.split('/').pop().split('.').shift();
-    const mediaDirectory = `../event/galleries/${currentFileName}/`;
+    const jsonUrl = `../event/galleries/${currentFileName}/file-list.json`;
 
     try {
-        const response = await fetch(mediaDirectory);
-        const text = await response.text();
+        // Fetch the file-list.json
+        const response = await fetch(jsonUrl);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch ${jsonUrl}: ${response.statusText}`);
+        }
+        const fileList = await response.json();
 
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(text, 'text/html');
+        // Construct URLs for each file
+        const baseUrl = `../event/galleries/${currentFileName}/`;
+        galleryItems = fileList.map(fileName => `${baseUrl}${fileName}`);
 
-        galleryItems = Array.from(doc.querySelectorAll('a'))
-            .filter(link => {
-                const href = link.href;
-                return href.match(/\.(jpg|jpeg|png|gif|mp4|mov)$/i);
-            })
-            .map(link => link.href);
-
+        // Loop through files and add them to the gallery
         for (const [index, mediaPath] of galleryItems.entries()) {
             const div = document.createElement('div');
             div.className = 'gallery-item';
@@ -36,24 +35,6 @@ async function loadMedia() {
                 video.preload = 'metadata';
                 video.playsInline = true;
                 video.muted = true;
-
-                video.addEventListener('loadedmetadata', function () {
-                    const canvas = document.createElement('canvas');
-                    canvas.width = 320; // Lower resolution for performance
-                    canvas.height = 180;
-                    const ctx = canvas.getContext('2d');
-
-                    video.currentTime = 0.1; // Use a specific frame for better thumbnail
-                    video.addEventListener(
-                        'seeked',
-                        function () {
-                            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-                            const thumbnail = canvas.toDataURL();
-                            video.setAttribute('poster', thumbnail); // Set the thumbnail
-                        },
-                        { once: true }
-                    );
-                });
 
                 div.appendChild(video);
             } else {
