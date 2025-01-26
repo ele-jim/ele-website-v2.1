@@ -413,10 +413,6 @@ header {
   transform: scale(1.02);;
 }
 
-.container:hover .middle {
-  opacity: 0;
-}
-
 .event .container.tapped .middle {
   display: flex;
   justify-content: center;

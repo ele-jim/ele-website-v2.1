@@ -21,6 +21,11 @@ async function loadMedia() {
         const baseUrl = `../event/galleries/${currentFileName}/`;
         galleryItems = fileList.map(fileName => `${baseUrl}${fileName}`);
 
+        if (galleryItems.length === 0) {
+            gallery.remove(); // Remove the gallery if no items are present
+            return;
+        }
+
         // Loop through files and add them to the gallery
         for (const [index, mediaPath] of galleryItems.entries()) {
             const div = document.createElement('div');
@@ -48,7 +53,7 @@ async function loadMedia() {
         }
     } catch (error) {
         console.error('Error loading media:', error);
-        gallery.innerHTML = '<p>Error loading gallery media.</p>';
+        gallery.remove(); // Remove the gallery if there's an error
     }
 }
 
