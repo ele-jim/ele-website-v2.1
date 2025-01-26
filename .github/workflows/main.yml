@@ -1,0 +1,31 @@
+name: Generate File List
+
+on:
+  push:
+    paths:
+      - 'event/galleries/**' # Trigger when changes are made in event/galleries/
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Generate File List
+        run: |
+          for dir in event/galleries/*; do
+            if [ -d "$dir" ]; then
+              files=$(ls "$dir" | jq -R -s -c 'split("\n")[:-1]')
+              echo $files > "$dir/file-list.json"
+            fi
+          done
+
+      - name: Commit Changes
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add event/galleries/**/file-list.json
+          git commit -m "Update file list"
+          git push
